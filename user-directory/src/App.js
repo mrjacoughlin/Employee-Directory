@@ -52,6 +52,19 @@ export default class App extends Component {
       people,
     });
   };
+  handleInputChange = (event) => {
+    this.setState({ search: event.target.value });
+  };
+
+  handleSearch = (event) => {
+    console.log(event.target.value);
+    let found = this.state.people.filter((person) => {
+      if (event.target.value === person.name.first) {
+        return person.name.first;
+      }
+    });
+    this.setState({ employees: found });
+  };
 
   render() {
     return (
