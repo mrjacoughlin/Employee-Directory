@@ -22,4 +22,42 @@ export default class App extends Component {
   componentWillUnmount() {
     console.log("I will Unmount");
   }
+  handleInputChange = (event) => {
+    const search = this.state.search;
+    console.log(search);
+  };
+  render() {
+    return (
+      <div className="App">
+        <h1>User Directory</h1>
+        <div className="Container">
+          <Row>
+            <Col xs={12} md={8}>
+              <input
+                className=""
+                type="text"
+                value={this.state.search}
+                onChange={this.handleInputChange}
+              />
+              <button
+                type="button"
+                onClick={this.handleSearchClick}
+                className="btn btn-success"
+              >
+                Search
+              </button>
+              <button
+                type="button"
+                onClick={this.handleSort}
+                className="btn btn-primary"
+              >
+                {" "}
+                Sort by Email{" "}
+              </button>
+            </Col>
+          </Row>
+        </div>
+      </div>
+    );
+  }
 }
