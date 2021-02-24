@@ -23,9 +23,36 @@ export default class App extends Component {
     console.log("I will Unmount");
   }
   handleInputChange = (event) => {
+    this.setState({ search: event.target.value });
+  };
+  handleSearchClick = (event) => {
     const search = this.state.search;
     console.log(search);
+    const data = fetch(`https://randomuser.me/api/?${search}`);
+    data
+      .then((response) => response.json())
+      .then((response) => {
+        this.setState({ people: response.results });
+      });
   };
+  handleSort = () => {
+    let people = this.state.people;
+    people.sort((a, b) => {
+      let emailA = a.email;
+      let emailB = b.email;
+      if (emailA < emailB) {
+        return -1;
+      }
+      if (emailA > emailB) {
+        return 1;
+      }
+      return 0;
+    });
+    this.setState({
+      people,
+    });
+  };
+
   render() {
     return (
       <div className="App">
