@@ -3,4 +3,4 @@
 Search through an employee directory, with the choice to search for Male/Female or list Alphabetically.
 
 ![Image of Directory]
-()
+(./img/directoryimg.jpeg)
