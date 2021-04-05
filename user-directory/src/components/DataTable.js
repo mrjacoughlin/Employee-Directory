@@ -34,4 +34,5 @@ function DataTable({ headings, users, handleSort }) {
     </div>
   );
 }
+
 export default DataTable;
